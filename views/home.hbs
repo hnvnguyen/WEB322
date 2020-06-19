@@ -26,24 +26,6 @@
     </div>
   </section>
 
-  <!-- Meals available -->
-  <section style="padding-top: 5.2em">
-    <h2 class="text-center">Ready to pick some dishes?</h2>
-    <div class="container">
-      <div class="row my-4">
-        {{#each meal}}
-        <div class="col-md-3 text-center my-1">
-          <img class="css_mealpic my-1" src="{{image}}" alt="">
-          <p class="my-0"><b>{{name}}</b></p>
-          <p>{{price}}</p>
-        </div>
-        {{/each}}
-      </div>
-    </div>
-  </section>
-
-  <hr class="mx-5">
-
   <!-- Top Meal Packages -->
   <section style="padding-top: 4em">
     <h2 class="text-center">Our Top Meal Packages</h2>
@@ -57,6 +39,24 @@
             <p>{{price}}</p>
           </div>
           {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </section>
+
+  <hr class="mx-5">
+
+  <!-- Meals available -->
+  <section style="padding-top: 5.2em">
+    <h2 class="text-center">Ready to pick some dishes?</h2>
+    <div class="container">
+      <div class="row my-4">
+        {{#each meal}}
+        <div class="col-md-3 text-center my-1">
+          <img class="css_mealpic my-1" src="{{image}}" alt="">
+          <p class="my-0"><b>{{name}}</b></p>
+          <p>{{price}}</p>
+        </div>
         {{/each}}
       </div>
     </div>

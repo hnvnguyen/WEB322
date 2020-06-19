@@ -1,0 +1,64 @@
+
+<!-- Hero section -->
+<div class="home_hero css_hero">
+  <h1 class="text-center">Food Delivery</h1>
+</div>
+
+<!-- Little store description -->
+<div class="quote">
+  <p class="text-center py-3 my-2" style="font-size: 1.2em;"><i>Good food is good mood.</i></p>
+</div>
+
+<main>
+  <!-- Store features -->
+  <section class="py-4 css_features">
+    <h2 class="text-center py-3">Store Features</h2>
+    <div class="container">
+      <div class="row">
+        {{#each feature}}
+        <div class="col-md-3 p-3 text-center">
+          <img class="css_featpic" src="{{image}}" alt="">
+          <p class="my-0"><b>{{title}}</b></p>
+          <p>{{desc}}</p>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+
+  <!-- Meals available -->
+  <section style="padding-top: 5.2em">
+    <h2 class="text-center">Ready to pick some dishes?</h2>
+    <div class="container">
+      <div class="row my-4">
+        {{#each meal}}
+        <div class="col-md-3 text-center my-1">
+          <img class="css_mealpic my-1" src="{{image}}" alt="">
+          <p class="my-0"><b>{{name}}</b></p>
+          <p>{{price}}</p>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+
+  <hr class="mx-5">
+
+  <!-- Top Meal Packages -->
+  <section style="padding-top: 4em">
+    <h2 class="text-center">Our Top Meal Packages</h2>
+    <div class="container">
+      <div class="row my-4">
+        {{#each mealPackage}}
+          {{#if topPackage}}
+          <div class="col-md-3 text-center my-1">
+            <img class="css_mealpic my-1" src={{image}} alt="">
+            <p class="my-0"><b>{{name}}</b></p>
+            <p>{{price}}</p>
+          </div>
+          {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </section>
+</main>

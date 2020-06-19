@@ -1,0 +1,102 @@
+
+* {
+    margin: 0;
+}
+
+body {
+    height: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+header {
+    background-color: white;
+    border-bottom: 3px solid #5e17eb;
+}
+
+.home_hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/img/homeHero.jpg");
+}
+
+.meals_hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/img/mealsHero.jpg");
+}
+
+.css_hero {
+    height: 70vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;   
+    align-items: center;
+    justify-content: center;
+}
+
+.quote {
+    border-top: 3px solid #ffc122;
+}
+
+h1 {
+    padding: 10px 50px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0.5em;
+    color: white
+}
+
+.css_features {
+    background-color: #ffc122;
+    box-shadow: 0 5px 10px 5px #ffc122;
+}
+
+.css_featpic {
+    width: 15vw;
+}
+.css_mealpic, .css_packpic {
+    width: inherit;
+}
+
+#account_sec {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    position: fixed;
+    z-index: 1;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+#account {
+    background-color: white;
+    width: 800px;
+    position: relative;
+    padding: 20px;
+    border-radius: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+form {
+    padding: 15px 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+
+.submit {
+    grid-column: 2/3;
+    width: fit-content;
+    right: 0;
+}
+
+.icon-remove {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+}

@@ -15,14 +15,6 @@ header {
     border-bottom: 3px solid #5e17eb;
 }
 
-.home_hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/img/homeHero.jpg");
-}
-
-.meals_hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/img/mealsHero.jpg");
-}
-
 .css_hero {
     height: 70vh;
     background-position: center;
@@ -56,47 +48,30 @@ h1 {
     width: inherit;
 }
 
-#account_sec {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7);
-    top: 0;
-    position: fixed;
-    z-index: 1;
-    color: black;
+.css_formCon {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    display: none;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
-#account {
-    background-color: white;
-    width: 800px;
-    position: relative;
+.css_form {
+    min-width: 400px;
+    width: 80vw;
+    max-width: 500px;
     padding: 20px;
     border-radius: 1em;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    box-shadow: 0 5px 10px #ffc122;
 }
 
-form {
-    padding: 15px 0;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
+form label {
+    margin: 13px 0 4px;
 }
 
-.submit {
-    grid-column: 2/3;
-    width: fit-content;
-    right: 0;
-}
-
-.icon-remove {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    cursor: pointer;
+@media screen and (min-width: 890px) {
+    .css_formCon {
+        flex-wrap: no-wrap;
+    }
+    .css_form {
+        width: 43vw;
+    }
 }

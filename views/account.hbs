@@ -1,0 +1,97 @@
+
+<!-- Hero section -->
+<div class="account_hero css_hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/img/accountHero.jpg')">
+  <h1 class="text-center">Login / Register</h1>
+</div>
+
+<!-- Little store description -->
+<div class="quote">
+  <p class="text-center py-3 my-1" style="font-size: 1.1em;"><i>
+      One cannot think well, love well, sleep well, if one has not dined well. (Virginia Woolf)
+  </i></p>
+</div>
+
+<hr style="border: 2px solid #ffc122" class="mx-4 my-1">
+
+<!-- Login & Register -->
+<section class="css_formCon my-5">
+    <div class="css_form px-5 m-3">
+      <img src="https://img.icons8.com/bubbles/100/000000/check-female.png"/>
+      <h2 class="d-inline mx-2">Login</h2>
+      <form id="loginForm" action="/account/login" method="POST" class="m-2"> 
+        <label for="loginEmail">Email</label>
+        <input
+          class="form-control form-control-sm"
+          id="loginEmail" 
+          name="loginEmail" 
+          type="email"
+          autocomplete
+          title="Enter your email">
+        {{#if err.lEmail}}
+        <p class="text-danger">{{err.lEmail}}</p>
+        {{/if}}
+        <label for="loginPassword">Password</label>
+        <input
+          class="form-control form-control-sm"
+          id="loginPassword"
+          name="loginPassword"
+          type="password"
+          title="Enter your password">
+        <input class="btn btn-primary float-right my-3 px-4" name="loginSubmit" type="submit" value="Log In">
+        {{#if err.lPass}}
+        <p class="text-danger">{{err.lPass}}</p>
+        {{/if}}
+      </form>
+    </div>
+
+    <div class="css_form px-5 m-3">
+      <img src="https://img.icons8.com/bubbles/100/000000/add-female-user.png"/>
+      <h2 class="d-inline mx-2">Register</h2>
+      <form id="regisForm" action="account/register" method="POST" class="m-2">
+        <label for="regisFName">First Name</label>
+        <input
+            class="form-control form-control-sm"
+            id="regisFName"
+            name="regisFName"
+            type="text"
+            autocomplete
+            title="Enter your first name">
+        {{#if err.rFName}}
+        <p class="text-danger">{{err.rFName}}</p>
+        {{/if}}
+        <label for="regisLName">Last Name</label>
+        <input
+            class="form-control form-control-sm"
+            id="regisLName"
+            name="regisLName"
+            type="text"
+            autocomplete
+            title="Enter your last name">
+        {{#if err.rLName}}
+        <p class="text-danger">{{err.rLName}}</p>
+        {{/if}}
+        <label for="regisEmail">Email</label>
+        <input
+            class="form-control form-control-sm"
+            id="regisEmail" 
+            name="regisEmail" 
+            type="email"
+            autocomplete
+            title="Enter your email">
+        {{#if err.rEmail}}
+        <p class="text-danger">{{err.rEmail}}</p>
+        {{/if}}
+        <label for="regisPassword">Password</label>
+        <input
+            class="form-control form-control-sm"
+            id="regisPassword"
+            name="regisPassword"
+            type="password"
+            title="Enter your password">
+        <input class="btn btn-primary float-right my-3 px-4" name="regisSubmit" type="submit" value="Register">
+        {{#if err.rPass}}
+        <p class="text-danger">{{err.rPass}}</p>
+        {{/if}}
+      </form>
+    </div>
+</section>

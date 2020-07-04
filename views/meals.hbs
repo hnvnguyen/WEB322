@@ -1,15 +1,15 @@
 
 <!-- Hero section -->
-<div class="meals_hero css_hero">
+<div class="css_hero" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/img/mealsHero.jpg')">
   <h1 class="text-center">Meal Packages</h1>
 </div>
 
 <!-- Little meal packages description -->
 <div class="quote">
-  <p class="text-center py-3 my-2" style="font-size: 1.2em;"><i>There is no love sincerer than the love of food.</i></p>
+  <p class="text-center py-3 my-1" style="font-size: 1.1em;"><i>There is no love sincerer than the love of food.</i></p>
 </div>
 
-<hr style="border: 3px double #ffc122" class="mx-5">
+<hr style="border: 2px solid #ffc122" class="mx-4 my-1">
 
 <main>
   <!-- Meal packages -->
@@ -18,7 +18,7 @@
     <h2 class="text-center">Meal Packages</h2>
       <div class="row my-3">
         {{#each mealPackage}}
-        <div class="col-md-3 my-4">
+        <div class="col-lg-3 col-md-4 my-4">
           <img class="css_packpic my-1" src="{{image}}" alt="">
           <p class="my-1 text-center"><b>{{name}}</b></p>
           <p class="my-0" style="font-size: 0.8em;"><b>Price: </b>{{price}}</p>

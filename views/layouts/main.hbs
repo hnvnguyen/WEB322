@@ -6,7 +6,7 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" type="text/css">
+  <link rel="stylesheet" href="/style.css" type="text/css">
   <title>FastServe - Meal Order &amp; Delivery</title>
 </head>
 
@@ -18,85 +18,10 @@
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="/" style="color: #5e17eb"><b>Home</b></a></li>
           <li class="nav-item"><a class="nav-link" href="/meals" style="color: #5e17eb"><b>Meal Packages</b></a></li>
-          <li class="nav-item d-flex align-items-center"><a id="account_toggle" href="#" style="color: #5e17eb">
-            <i class="nav-link icon-user icon-large"></i>
-            </a></li>
+          <li class="nav-item"><a class="nav-link" href="/account" style="color: #5e17eb"><b>Account</b></a></li>
         </ul>
       </nav>
     </header>
-
-    <!-- Login & Register -->
-    <section id="account_sec">
-      <div id="account"> 
-        <div class="css_form px-5 mx-0 border-right">
-          <h2>Register</h2>
-          <form id="regisForm" action="account/register" method="POST">
-            <label for="regisFName">First Name</label>
-            <input
-              class="form-control form-control-sm"
-              id="regisFName"
-              name="regisFName"
-              type="text"
-              required
-              autocomplete
-              title="Enter your first name">
-            <label for="regisLName">Last Name</label>
-            <input
-              class="form-control form-control-sm"
-              id="regisLName"
-              name="regisLName"
-              type="text"
-              required
-              autocomplete
-              title="Enter your last name">
-            <label for="regisEmail">Email</label>
-            <input
-              class="form-control form-control-sm"
-              id="regisEmail" 
-              name="regisEmail" 
-              type="email"
-              required
-              autocomplete
-              title="Enter your email">
-            <label for="regisPassword">Password</label>
-            <input
-              class="form-control form-control-sm"
-              id="regisPassword"
-              name="regisPassword"
-              type="password"
-              required
-              title="Enter your password">
-            <input class="submit btn btn-primary" name="regisSubmit" type="submit" value="Register">
-          </form>
-        </div>
-
-        <div class="css_form px-5 mx-0 border-left">
-          <h2>Login</h2>
-          <form id="loginForm" action="/account/login" method="POST"> 
-            <label for="loginEmail">Email</label>
-            <input
-              class="form-control form-control-sm"
-              id="loginEmail" 
-              name="loginEmail" 
-              type="email"
-              required
-              autocomplete
-              title="Enter your email">
-            <label for="loginPassword">Password</label>
-            <input
-              class="form-control form-control-sm"
-              id="loginPassword"
-              name="loginPassword"
-              type="password"
-              required
-              title="Enter your password">
-            <input class="submit btn btn-primary" name="loginSubmit" type="submit" value="Log In">
-          </form>
-        </div>
-        
-        <div><i class="icon-remove" id="account_close"></i></div>
-      </div>
-    </section>
 
     {{{body}}}
   </div>
@@ -116,7 +41,6 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
 </body>
 
 </html>

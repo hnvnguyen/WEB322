@@ -137,3 +137,53 @@ module.exports.features = [
         desc: "Secure payment methods"
     }
 ];
+
+module.exports.user = [];
+
+module.exports.validateLogin = function(userObj) {
+    return new Promise(function(resolve, reject) {
+        let errorL = {};
+        if (userObj.loginEmail.length == 0) {
+            errorL.lEmail = "Please enter your email.";
+        }
+        if (userObj.loginPassword.length == 0) {
+            errorL.lPass = "Please enter your password.";
+        }
+        if (Object.keys(errorL).length == 0) {
+            resolve();
+            return;
+        }
+        reject(errorL);
+        return;
+    });
+};
+
+module.exports.validateRegis = function(userObj) {
+    return new Promise(function(resolve, reject) {
+        let errorR = {};
+        if (userObj.regisFName.length == 0) {
+            errorR.rFName = "Please enter your first name.";
+        }
+        if (userObj.regisLName.length == 0) {
+            errorR.rLName = "Please enter your last name.";
+            console.log(errorR);
+        }
+        if (userObj.regisEmail.length == 0) {
+            errorR.rEmail = "Please enter your email.";
+        }
+        if (userObj.regisPassword.length == 0) {
+            errorR.rPass = "Please enter your password.";
+        } else if (userObj.regisPassword.length < 8) {
+            errorR.rPass = "Password length must be at least 8 characters.";
+        } else if (!userObj.regisPassword.match(/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/)) {
+            errorR.rPass = "Password must contain at least one digit, one lowercase letter and one uppercase letter.";
+        }
+
+        if (Object.keys(errorR).length == 0) {
+            resolve();
+            return;
+        }
+        reject(errorR);
+        return;
+    });
+}

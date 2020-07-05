@@ -7,38 +7,47 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   <link rel="stylesheet" href="/style.css" type="text/css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <title>FastServe - Meal Order &amp; Delivery</title>
 </head>
 
 <body>
   <div>
     <header>
-      <nav class="navbar navbar-expand-sm py-0 px-5 justify-content-between">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <a class="navbar-brand" href="/"><img height="60" src="/img/logo.png" alt=""></a>
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="/" style="color: #5e17eb"><b>Home</b></a></li>
-          <li class="nav-item"><a class="nav-link" href="/meals" style="color: #5e17eb"><b>Meal Packages</b></a></li>
-          <li class="nav-item"><a class="nav-link" href="/account" style="color: #5e17eb"><b>Account</b></a></li>
-        </ul>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarToggler">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item mx-3"><a class="nav-link" href="/" style="color: #5e17eb"><b>Home</b></a></li>
+            <li class="nav-item mx-3"><a class="nav-link" href="/meals" style="color: #5e17eb"><b>Meal Packages</b></a></li>
+            <li class="nav-item mx-3"><a class="nav-link" href="/account" style="color: #5e17eb"><b>Account</b></a></li>
+          </ul>
+        </div>
       </nav>
     </header>
 
     {{{body}}}
   </div>
 
-  <footer class="bg-warning d-flex justify-content-between align-items-center px-5">
-    <p class="m-0">&copy; 2020 FastServe. All rights reserved.</p>
-    <div class="navbar navbar-expand-sm">
-      <ul class="navbar-nav">
-        <li class="nav-item px-5"><a class="nav-link" href="/meals" style="color: #5e17eb"><b>Meal Packages</b></a></li>
+  <footer class="bg-warning d-md-flex justify-content-between align-items-center px-5">
+    <a class="nav-link text-center" href="/meals" style="color: #5e17eb"><b>Meal Packages</b></a>
+    <div class="navbar navbar-expand">
+      <ul class="navbar-nav mx-auto">
         <li class="nav-item"><a href="https://www.facebook.com/" target="_blank" class="nav-link">
           <i class="icon-facebook icon-large " style="color: #5e17eb"></i></a></li>
         <li class="nav-item"><a href="https://www.instagram.com/" target="_blank" class="nav-link">
           <i class="icon-instagram icon-large" style="color: #5e17eb"></i></a></li>
         <li class="nav-item"><a href="https://twitter.com/" target="_blank" class="nav-link">
-        <i class="icon-twitter icon-large" style="color: #5e17eb"></i></a></li>
+          <i class="icon-twitter icon-large" style="color: #5e17eb"></i></a></li>
       </ul>
     </div>
+    <p class="m-0 text-center">&copy; 2020 FastServe. All rights reserved.</p>
   </footer>
 
 </body>

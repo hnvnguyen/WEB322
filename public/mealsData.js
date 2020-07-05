@@ -166,7 +166,6 @@ module.exports.validateRegis = function(userObj) {
         }
         if (userObj.regisLName.length == 0) {
             errorR.rLName = "Please enter your last name.";
-            console.log(errorR);
         }
         if (userObj.regisEmail.length == 0) {
             errorR.rEmail = "Please enter your email.";

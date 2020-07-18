@@ -1,5 +1,5 @@
 
-const mealsData = require("./public/mealsData.js");
+const mealsData = require("./mealsData.js");
 const express = require("express");
 const app = express();
 const path = require("path");

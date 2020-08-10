@@ -138,8 +138,6 @@ module.exports.features = [
     }
 ];
 
-module.exports.user = [];
-
 module.exports.validateLogin = function(userObj) {
     return new Promise(function(resolve, reject) {
         let errorL = {};
@@ -150,7 +148,7 @@ module.exports.validateLogin = function(userObj) {
             errorL.lPass = "Please enter your password.";
         }
         if (Object.keys(errorL).length == 0) {
-            resolve();
+            resolve(userObj);
             return;
         }
         reject(errorL);

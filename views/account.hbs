@@ -26,7 +26,11 @@
           name="loginEmail" 
           type="email"
           autocomplete
-          title="Enter your email">
+          title="Enter your email"
+          {{#unless err.lEmail}}
+          value={{data.loginEmail}}
+          {{/unless}}
+          >
         {{#if err.lEmail}}
         <p class="text-danger">{{err.lEmail}}</p>
         {{/if}}
@@ -55,7 +59,11 @@
             name="regisFName"
             type="text"
             autocomplete
-            title="Enter your first name">
+            title="Enter your first name"
+            {{#unless err.rFName}}
+            value={{data.regisFName}}
+            {{/unless}}
+            >
         {{#if err.rFName}}
         <p class="text-danger">{{err.rFName}}</p>
         {{/if}}
@@ -66,7 +74,11 @@
             name="regisLName"
             type="text"
             autocomplete
-            title="Enter your last name">
+            title="Enter your last name"
+            {{#unless err.rLName}}
+            value={{data.regisLName}}
+            {{/unless}}
+            >
         {{#if err.rLName}}
         <p class="text-danger">{{err.rLName}}</p>
         {{/if}}
@@ -77,7 +89,11 @@
             name="regisEmail" 
             type="email"
             autocomplete
-            title="Enter your email">
+            title="Enter your email"
+            {{#unless err.rEmail}}
+            value={{data.regisEmail}}
+            {{/unless}}
+            >
         {{#if err.rEmail}}
         <p class="text-danger">{{err.rEmail}}</p>
         {{/if}}

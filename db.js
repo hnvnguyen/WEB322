@@ -66,8 +66,6 @@ module.exports.checkUser = function(user) {
         Users.findOne({email: user.loginEmail})
         .exec()
         .then((returnUser) => {
-            console.log(user.password);
-            console.log(returnUser.password);
             bcrypt.compare(user.loginPassword, returnUser.password)
             .then((result) => {
                 if (returnUser && result) {  

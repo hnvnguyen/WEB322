@@ -34,9 +34,9 @@
         {{#each mealPackage}}
           {{#if topPackage}}
           <div class="col-lg-3 col-md-4 col-sm-6 text-center my-1">
-            <img class="css_mealpic my-1" src={{image}} alt="">
+            <img class="css_mealpic my-1" src=img/{{img}} alt="">
             <p class="my-0"><b>{{name}}</b></p>
-            <p>{{price}}</p>
+            <p>${{price}}</p>
           </div>
           {{/if}}
         {{/each}}

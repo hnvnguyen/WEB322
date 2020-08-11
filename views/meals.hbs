@@ -19,12 +19,12 @@
       <div class="row my-3">
         {{#each mealPackage}}
         <div class="col-lg-3 col-md-4 my-4">
-          <img class="css_packpic my-1" src="{{image}}" alt="">
+          <img class="css_packpic my-1" src="img/{{img}}" alt="">
           <p class="my-1 text-center"><b>{{name}}</b></p>
-          <p class="my-0" style="font-size: 0.8em;"><b>Price: </b>{{price}}</p>
-          <p class="my-0" style="font-size: 0.8em;"><b>Category:</b> {{category}}</p>
-          <p class="my-0" style="font-size: 0.8em;"><b>Items: </b>{{mealsItem.length}}</p>
-          <p class="my-0" style="font-size: 0.8em;">{{desc}}</p>
+          <p class="my-0" style="font-size: 0.9em;"><b>Price: </b>${{price}}</p>
+          <p class="my-0" style="font-size: 0.9em;"><b>Category:</b> {{category}}</p>
+          <p class="my-0" style="font-size: 0.9em;"><b>Items: </b>{{mealsNum}}</p>
+          <p class="my-0" style="font-size: 0.9em;">{{desc}}</p>
         </div>
        {{/each}}
       </div>

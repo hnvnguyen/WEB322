@@ -1,0 +1,109 @@
+<!-- Hero section -->
+<div class="account_hero css_hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/img/clerkHero.jpg')">
+  <h1 class="text-center">Clerk Page</h1>
+</div> 
+
+<!-- Little store description -->
+<div class="quote">
+  <p class="text-center py-3 my-1" style="font-size: 1.1em;"><i>
+      Welcome to your page {{user.firstName}} {{user.lastName}}.
+  </i></p>
+</div>
+
+<hr style="border: 2px solid black" class="mx-4 my-1">
+
+<!-- Add Meal Packages -->
+<section class="m-5 d-flex justify-content-center">
+    <div class="css_add">
+        <h2 class="text-center m-2">Add Meal Package</h2>
+        <form id="addPackage" action="/clerkAdd/addPackage" method="POST" class="m-4" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="name">Name</label>
+                    <input 
+                    class="form-control form-control-sm"
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    title="Enter the meal package name"
+                    {{#unless err.name}}
+                    value={{data.name}}
+                    {{/unless}}>
+                </div> 
+                <div class="form-group col-md-6">
+                    <label for="price">Price (CAD)</label>
+                    <input 
+                    class="form-control form-control-sm"
+                    id="price"
+                    name="price"
+                    type="number"
+                    min="0.00"
+                    step="0.01"
+                    required
+                    title="Enter the meal package price"
+                    value={{data.price}}>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="category">Category</label>
+                    <input 
+                    class="form-control form-control-sm"
+                    id="category"
+                    name="category"
+                    type="text"
+                    required
+                    title="Enter the meal package category"
+                    value={{data.category}}>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="mealsNum">Number of Meals</label>
+                    <input 
+                    class="form-control form-control-sm"
+                    id="mealsNum"
+                    name="mealsNum"
+                    type="number"
+                    min="1"
+                    required
+                    title="Enter the number of meals included"
+                    value={{data.category}}>
+                </div>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="checkbox" class="form-check-input my-0" id="topPackage" name="topPackage">
+                <label class="form-check-label my-0 mx-1" for="topPackage">Top Meal Package</label>
+            </div>
+            <div class="form-group">
+                <label for="desc">Description</label>
+                <textarea
+                class="form-control" 
+                id="desc" 
+                name="desc"
+                rows="4"
+                required
+                title="Enter the meal package description"
+                value={{data.desc}}></textarea>
+            </div>
+            <div class="form-group p-0 m-0">
+                <label for="photo">Meal Package Picture</label><br />
+                <input id="photo" type="file" name="photo" required/>
+                {{#if err}}
+                <p class="text-danger">{{err}}</p>
+                {{/if}}
+            </div>
+            <input class="btn btn-primary px-4 my-4" name="submit" type="submit" value="Submit">
+        </form>
+    </div>
+</section>
+
+<hr style="border: 2px solid black" class="mx-4 my-1">
+
+<!-- Other Options -->
+<section class="my-3 py-1">
+    <div class="text-center">
+        <a href="/clerkDashboard" class="btn btn-dark btn-lg my-4 mx-5">Account Dashboard</a>
+        <a href="/clerkView" class="btn btn-dark btn-lg my-4 mx-5">View Meal Packages</a>
+        <a href="/logout" class="btn btn-dark btn-lg my-4 mx-5">Log out</a>
+    </div>
+</section>

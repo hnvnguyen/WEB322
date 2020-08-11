@@ -11,7 +11,18 @@ let userSchema = new Schema({
     user: {type: Boolean, default: true}
 });
 
+let mealPackSchema = new Schema({
+    name: {type: String, unique: true},
+    price: Schema.Types.Decimal128,
+    desc: String,
+    category: String,
+    mealsNum: Number,
+    topPackage: Boolean,
+    img: String
+});
+
 let Users;
+let MealPacks;
 
 module.exports.db_init = function() {
     return new Promise((resolve, reject) => {
@@ -21,6 +32,7 @@ module.exports.db_init = function() {
         });
         db.once('open', () => {
             Users = db.model("users", userSchema);
+            MealPacks = db.model("mealpacks", mealPackSchema);
             resolve();
         });
     });
@@ -82,4 +94,48 @@ module.exports.checkUser = function(user) {
             return;
         })
     })
+}
+
+module.exports.addPackage = function(data) {
+    return new Promise((resolve, reject) => {
+        // Check empty for string and turn to null
+        for (field in data) {
+            data[field] = (field == "" ? null : data[field]);
+        }
+
+        data.topPackage = (data.topPackage ? true : false);
+        data.price = Number.parseFloat(data.price).toFixed(2);
+        data.img = data.photo;
+        thisPackage = new MealPacks(data);
+
+        thisPackage.save((err) => {
+            if (err) {
+                console.log("Error while saving to the database.");
+                reject({name: "Package name already existed. Please choose another name."});
+            } else {
+                console.log("Package saved.");
+                resolve("Package saved");
+            }
+        });
+    });
+}
+
+module.exports.getPackages = function(data) {
+    return new Promise((resolve, reject) => {
+        MealPacks.find()
+        .exec()
+        .then((data) => {
+            if (!data) {
+                resolve({});
+                return;
+            } else {
+                resolve(data.map(item => item.toObject()));
+                return;
+            }
+        }).catch((err) => {
+            console.log("Error retrieving meal packages.");
+            reject(err);
+            return;
+        });
+    });
 }

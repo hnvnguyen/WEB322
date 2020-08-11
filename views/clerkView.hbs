@@ -1,0 +1,45 @@
+<!-- Hero section -->
+<div class="account_hero css_hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/img/clerkHero.jpg')">
+  <h1 class="text-center">Clerk Page</h1>
+</div> 
+
+<!-- Little store description -->
+<div class="quote">
+  <p class="text-center py-3 my-1" style="font-size: 1.1em;"><i>
+      Welcome to your page {{user.firstName}} {{user.lastName}}.
+  </i></p>
+</div>
+
+<hr style="border: 2px solid black" class="mx-4 my-1">
+
+<section class="m-5">
+    <h2 class="text-center m-2">Meal Packages</h2>
+    <div>
+        {{#each mealPackage}}
+        <div class="container d-flex justify-content-center m-5">
+            <div class="row css_list">
+                <img class="css_featpic my-1" src="img/{{img}}" alt="">
+                <div class="col-sm-6">
+                    <p class="my-0" style="font-size: 0.9em;"><b>Name: </b>{{name}}</p>
+                    <p class="my-0" style="font-size: 0.9em;"><b>Price: </b>${{price}}</p>
+                    <p class="my-0" style="font-size: 0.9em;"><b>Category:</b> {{category}}</p>
+                    <p class="my-0" style="font-size: 0.9em;"><b>Items: </b>{{mealsNum}}</p>
+                    <p class="my-0" style="font-size: 0.9em;"><b>Top Package: </b>{{topPackage}}</p>
+                    <p class="my-0" style="font-size: 0.9em;">{{desc}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>
+
+<hr style="border: 2px solid black" class="mx-4 my-1">
+
+<!-- Other Options -->
+<section class="my-3 py-1">
+    <div class="text-center">
+        <a href="/clerkDashboard" class="btn btn-dark btn-lg my-4 mx-5">Account Dashboard</a>
+        <a href="/clerkAdd" class="btn btn-dark btn-lg my-4 mx-5">Add Meal Package</a>
+        <a href="/logout" class="btn btn-dark btn-lg my-4 mx-5">Log out</a>
+    </div>
+</section>

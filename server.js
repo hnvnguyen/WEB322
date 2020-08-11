@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const dotenv = require("dotenv").config()   ; // credentials
 const nodemailer = require("nodemailer"); // mailing
 const clientSessions = require("client-sessions"); // cookies
+const multer = require("multer");
 
 
 var HTTP_PORT = process.env.PORT || 8080;
@@ -37,9 +38,32 @@ if (dotenv.error) {
 app.use(clientSessions({
     cookieName: "session", // object name that's gonna be added into the 'req'
     secret: process.env.SESSION_SECRET, // encrypting key
-    duration: 2 * 60 * 1000, // duration of the session in milliseconds
-    activeDuration: 60 * 1000 // extended duration of each request
+    duration: 5 * 60 * 1000, // duration of the session in milliseconds
+    activeDuration: 5 * 60 * 1000 // extended duration of each request
 }));
+
+// Multer
+const storage = multer.diskStorage({
+    destination: "./public/img/",
+    filename: function(req, file, cb) {
+        // The filename will be stored as the current date in millisecond
+        cb(null, Date.now() + path.extname(file.originalname));
+    }
+});
+const imageFilter = (req, file, cb) => {
+    if (file.mimetype.startsWith('image')) {
+        return cb(null, true);
+    } else {
+        //return cb(new Error("Not an image. Please upload an image", 400), false);
+        cb(null, false);
+    }
+};
+const upload = multer({storage: storage, fileFilter: imageFilter});
+
+
+
+/********* Middleware *********/
+
 function ensureLogin(req, res, next) { // Ensure that the user session is still active
     if (!req.session.user) {
         res.redirect('/account');
@@ -55,25 +79,38 @@ function ensureEntryClerk(req, res, next) {// Ensure that the user is the entry 
     }
 }
 
-
 /********* Requested routes *********/
 
 app.get('/', (req, res) => {
-    res.render('home', {
-        feature: mealsData.features,
-        meal: mealsData.meals,
-        mealPackage: mealsData.mealPackages
+    db.getPackages().then((data) => {
+        res.render('home', {
+            feature: mealsData.features,
+            meal: mealsData.meals,
+            mealPackage: data
+        });
+    }).catch((err) => {
+        console.log(err);
     });
 });
 
 app.get('/meals', (req, res) => {
-    res.render('meals', {
-        mealPackage: mealsData.mealPackages
+    db.getPackages().then((data) => {
+        res.render('meals', {
+            mealPackage: data
+        });
+    }).catch((err) => {
+        console.log(err);
     });
 });
 
 app.get('/account', (req, res) => {
+    if (req.session.user && !req.session.user.user) {
+        res.render('clerkDashboard', {user: req.session.user});
+    } else if (req.session.user) {
+        res.render('userDashboard', {user: req.session.user});
+    } else {
     res.render('account');
+    }
 });
 
 app.get('/userDashboard', ensureLogin, (req, res) => {
@@ -82,6 +119,21 @@ app.get('/userDashboard', ensureLogin, (req, res) => {
 
 app.get('/clerkDashboard', ensureEntryClerk, (req, res) => {
     res.render('clerkDashboard', {user: req.session.user});
+});
+
+app.get('/clerkAdd', ensureEntryClerk, (req, res) => {
+    res.render('clerkAdd', {user: req.session.user});
+});
+
+app.get('/clerkView', ensureEntryClerk, (req, res) => {
+    db.getPackages().then((data) => {
+        res.render('clerkView', {
+            mealPackage: data,
+            user: req.session.user
+        });
+    }).catch((err) => {
+        console.log(err);
+    });
 });
 
 app.get('/logout', (req, res) => {
@@ -137,6 +189,22 @@ app.post('/account/register', (req, res) => {
         res.render('account', {err: errorR, data: req.body});
     });
 
+});
+
+app.post('/clerkAdd/addPackage', upload.single('photo'), (req, res) => {
+    if (!req.file) {
+        let error = "Please upload an image file.";
+        res.render('clerkAdd', {err: error, data: req.body});
+    } else {
+        req.body.photo = req.file.filename;
+        db.addPackage(req.body)
+        .then((data) => {
+            res.render('informPage', {message: data});
+        }).catch((error) => {
+            console.log(error);
+            res.render('clerkAdd', {err: error, data: req.body});
+        });
+    }   
 });
 
 app.use((req, res) => {
